@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Иш-чаралар | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <span>№105 ЖАЛПЫ БИЛИМ БЕРҮҮ МЕКТЕБИ</span>
+        <h1>Мектептеги иш-чаралар</h1>
+        <p>Маданий, коомдук жана спорттук иш-чаралар.</p>
+    </div>
+</section>
+
+<section class="page-content">
+    <div class="container">
+
+        <div class="page-grid">
+
+            {% for item in items %}
+
+            <a href="{% url 'event_detail' pk=item.pk %}"
+               class="info-card event-card-link">
+
+                {% if item.image %}
+                <img
+                    src="{{ item.image.url }}"
+                    alt="{{ item.title }}"
+                    style="width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:20px;"
+                >
+                {% endif %}
+
+                <h2>{{ item.title }}</h2>
+
+                <p>{{ item.description|truncatewords:25 }}</p>
+
+                <p>
+                    <strong>Өткөрүлүү күнү:</strong>
+                    {{ item.event_date|date:"d.m.Y" }}
+                </p>
+
+                {% if item.location %}
+                <p>
+                    <strong>Өткөрүлүү жери:</strong>
+                    {{ item.location }}
+                </p>
+                {% endif %}
+
+                <div class="event-read-more">
+                    Толук маалымат →
+                </div>
+
+            </a>
+
+            {% empty %}
+
+            <div class="empty-card">
+                <h3>Азырынча иш-чаралар жок</h3>
+                <p>Жакында жаңы иш-чаралар жарыяланат.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

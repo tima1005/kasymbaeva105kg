@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+
+{% block title %}Башкы бет | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="modern-hero">
+    <div class="hero-background"></div>
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
+
+    <div class="container modern-hero-content">
+
+        <div class="hero-text">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Ж. Касымбаева атындагы №105 мектеп
+            </div>
+
+            <h1>
+                Билим менен<br>
+                <span>келечекке</span><br>
+                жол ач!
+            </h1>
+
+            <p>
+                Ар бир окуучунун талантын ачып,
+                билимге, чыгармачылыкка жана өнүгүүгө
+                шыктандырган мектеп.
+            </p>
+
+            <div class="modern-hero-buttons">
+                <a href="{% url 'about' %}" class="hero-main-btn">
+                    Мектеп жөнүндө <span>→</span>
+                </a>
+
+                <a href="{% url 'news' %}" class="hero-outline-btn">
+                    Жаңылыктарды көрүү
+                </a>
+            </div>
+
+            <div class="hero-bottom-note">
+                <span></span>
+                БИЛИМ • ТАРБИЯ • КЕЛЕЧЕК
+            </div>
+        </div>
+
+        <div class="hero-decoration">
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
+
+            <div class="hero-circle">
+                <div class="hero-circle-inner">
+                    <span>105</span>
+                    <small>МЕКТЕП</small>
+                    <div class="hero-circle-line"></div>
+                    <p>БИЛИМ БЕРҮҮ</p>
+                </div>
+            </div>
+
+            <div class="hero-floating-card">
+                <span class="floating-star">✦</span>
+                <div>
+                    <strong>Жаңы мүмкүнчүлүктөр</strong>
+                    <small>Жаркын келечекке бир кадам</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hero-scroll">
+        <span></span>
+        ТӨМӨН КАРАЙ ЖЫЛДЫР
+    </div>
+</section>
+
+
+<!-- STATISTICS --><section class="section stats-section">
+    <div class="container">
+        <div class="stats-heading">
+            <span>№105 МЕКТЕП САНДАРДА</span>
+            <h2>Биздин мектеп</h2>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">✦</div>
+                <h3 class="stat-number">{{ school_stats.student_count|default:"—" }}</h3>
+                <p>Окуучулар</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">♧</div>
+                <h3 class="stat-number">{{ school_stats.teacher_count|default:"—" }}</h3>
+                <p>Мугалимдер</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">▦</div>
+                <h3 class="stat-number">{{ school_stats.class_count|default:"—" }}</h3>
+                <p>Класстар</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">★</div>
+                <h3 class="stat-number">{{ school_stats.founded_year|default:"—" }}</h3>
+                <p>Түзүлгөн жылы</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about section">
+    <div class="container about-container">
+
+        <div class="about-visual">
+            <div class="about-visual-main">
+                <div class="about-visual-content">
+                    <span>№105</span>
+                    <p>БИЛИМ БЕРҮҮ МЕКТЕБИ</p>
+                </div>
+            </div>
+
+            <div class="about-small-card">
+                <span>✦</span>
+                <div>
+                    <strong>Биздин максат</strong>
+                    <p>Билимдүү келечек</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-content">
+            <span class="section-label">БИЗ ЖӨНҮНДӨ</span>
+
+            <h2>
+                Ар бир улуу келечек
+                <span>билимден</span> башталат.
+            </h2>
+
+            <p>
+                Ж. Касымбаева атындагы №105 жалпы билим берүү мектеби —
+                окуучулардын билим алуусуна, жөндөмдөрүн өнүктүрүүгө
+                жана жаңы мүмкүнчүлүктөрдү ачууга багытталган билим берүү мекемеси.
+            </p>
+
+            <a href="{% url 'about' %}" class="about-link">
+                Мектеп тууралуу кененирээк <span>→</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- NEWS -->
+<section class="news section">
+    <div class="container">
+
+        <div class="section-top">
+            <div class="section-heading">
+                <span class="section-label">АКЫРКЫ ЖАҢЫЛЫКТАР</span>
+                <h2>Мектеп жашоосунан</h2>
+                <p>Мектептеги жаңылыктар жана маанилүү окуялар.</p>
+            </div>
+
+            <a href="{% url 'news' %}" class="section-more">
+                Бардык жаңылыктар <span>↗</span>
+            </a>
+        </div>
+
+        <div class="page-grid">
+
+            {% for item in latest_news %}
+            <article class="info-card news-card">
+
+                {% if item.image %}
+                <div class="news-image">
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                </div>
+                {% else %}
+                <div class="news-image news-placeholder">
+                    <span>№105</span>
+                </div>
+                {% endif %}
+
+                <div class="news-card-content">
+                    <small>{{ item.created_at|date:"d.m.Y" }}</small>
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.description|truncatewords:20 }}</p>
+                </div>
+
+            </article>
+
+            {% empty %}
+            <div class="empty-card">
+                <h3>Жаңылыктар жакында жарыяланат</h3>
+                <p>Мектептеги акыркы маалыматтар ушул жерде жайгашат.</p>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements section">
+    <div class="container">
+
+        <div class="section-top">
+            <div class="section-heading">
+                <span class="section-label">БИЗДИН СЫЙМЫКТАР</span>
+                <h2>Жетишкендиктер</h2>
+                <p>Окуучулардын жана мугалимдердин ийгиликтери.</p>
+            </div>
+
+            <a href="{% url 'achievements' %}" class="section-more">
+                Бардыгын көрүү <span>↗</span>
+            </a>
+        </div>
+
+        <div class="page-grid">
+
+            {% for item in latest_achievements %}
+            <article class="info-card achievement-card">
+
+                {% if item.image %}
+                <div class="news-image">
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                </div>
+                {% else %}
+                <div class="achievement-placeholder">
+                    <span>✦</span>
+                </div>
+                {% endif %}
+
+                <div class="news-card-content">
+                    <small>{{ item.year }}</small>
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.description|truncatewords:20 }}</p>
+                </div>
+
+            </article>
+
+            {% empty %}
+            <div class="empty-card">
+                <h3>Жетишкендиктер жакында жарыяланат</h3>
+                <p>Мектептин ийгиликтери ушул бөлүмдө көрсөтүлөт.</p>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<!-- GALLERY -->
+<section class="gallery section">
+    <div class="container gallery-banner">
+
+        <div class="gallery-banner-content">
+            <span class="section-label">МЕКТЕП ЖАШООСУ</span>
+
+            <h2>
+                Ар бир көз ирмем —
+                <span>өзгөчө тарых.</span>
+            </h2>
+
+            <p>
+                Мектептеги иш-чаралар, кызыктуу учурлар
+                жана эсте каларлык сүрөттөр.
+            </p>
+
+            <a href="{% url 'gallery' %}" class="hero-main-btn">
+                Галереяны көрүү <span>→</span>
+            </a>
+        </div>
+
+        <div class="gallery-banner-decoration">
+            <div class="gallery-big-number">105</div>
+            <div class="gallery-decoration-circle"></div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTACT CTA -->
+<section class="contact-cta section">
+    <div class="container contact-cta-inner">
+
+        <div>
+            <span class="section-label">БАЙЛАНЫШ</span>
+            <h2>Биз менен байланышта болуңуз!</h2>
+            <p>Мектеп тууралуу маалымат алуу үчүн байланыш барагына өтүңүз.</p>
+        </div>
+
+        <a href="{% url 'contacts' %}" class="hero-main-btn">
+            Байланышуу <span>→</span>
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

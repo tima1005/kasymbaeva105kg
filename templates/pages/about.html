@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+{% block title %}Мектеп жөнүндө | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+    <div class="container about-hero-content">
+
+        <div class="about-hero-text">
+            <span class="section-label">БИЗ ЖӨНҮНДӨ</span>
+
+            <h1>
+                Билим берүү —
+                <span>келечекке</span>
+                салынган инвестиция.
+            </h1>
+
+            <p>
+                Ж. Касымбаева атындагы №105 жалпы билим берүү мектеби.
+                Билимге, тарбияга жана өнүгүүгө багытталган мектеп.
+            </p>
+
+            <a href="{% url 'contacts' %}" class="hero-main-btn">
+                Биз менен байланышуу <span>→</span>
+            </a>
+        </div>
+
+        <div class="about-hero-visual">
+            <div class="about-hero-number">105</div>
+            <div class="about-hero-caption">
+                <span>✦</span>
+                <div>
+                    <strong>№105 мектеп</strong>
+                    <small>Билимдүү муун — жаркын келечек!</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- INTRODUCTION -->
+<section class="section about-intro">
+    <div class="container about-intro-grid">
+
+        <div>
+            <span class="section-label">МЕКТЕБИБИЗ</span>
+            <h2>Ар бир окуучу — өзүнчө мүмкүнчүлүк.</h2>
+        </div>
+
+        <div>
+            <p>
+                Ж. Касымбаева атындагы №105 жалпы билим берүү мектеби
+                окуучулардын сапаттуу билим алуусуна, жеке жөндөмдөрүн
+                өнүктүрүүгө жана коомго пайдалуу инсан болуп калыптанышына
+                багытталган билим берүү мекемеси.
+            </p>
+
+            <p>
+                Биздин мектептин тарыхы, жетишкендиктери, мугалимдери
+                жана окуучулары тууралуу маалыматтар ушул баракта
+                жайгаштырылат.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MISSION -->
+<section class="section mission-section">
+    <div class="container mission-grid">
+
+        <div class="mission-card">
+            <div class="mission-icon">✦</div>
+            <span>01 / МИССИЯ</span>
+            <h2>Билимдүү жана жоопкерчиликтүү муунду тарбиялоо.</h2>
+            <p>
+                Ар бир окуучунун мүмкүнчүлүгүн ачууга жана
+                билим алуусуна шарт түзүүгө умтулуу.
+            </p>
+        </div>
+
+        <div class="mission-card mission-card-gold">
+            <div class="mission-icon">◎</div>
+            <span>02 / КӨЗ КАРАШ</span>
+            <h2>Жаңы мүмкүнчүлүктөргө ачык мектеп болуу.</h2>
+            <p>
+                Заманбап билим берүү жана чыгармачылык аркылуу
+                келечекке ишенимдүү кадам таштоо.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- VALUES -->
+<section class="section values-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="section-label">БИЗДИН БААЛУУЛУКТАР</span>
+            <h2>Биз үчүн маанилүү нерселер</h2>
+            <p>Билим берүүдө жана тарбиялоодо негизги багыттарыбыз.</p>
+        </div>
+
+        <div class="values-grid">
+
+            <div class="value-card">
+                <span>01</span>
+                <div class="value-icon">✦</div>
+                <h3>Билим</h3>
+                <p>Сапаттуу билим алууга жана изденүүгө умтулуу.</p>
+            </div>
+
+            <div class="value-card">
+                <span>02</span>
+                <div class="value-icon">◇</div>
+                <h3>Тарбия</h3>
+                <p>Урмат-сый, адептүүлүк жана жоопкерчилик.</p>
+            </div>
+
+            <div class="value-card">
+                <span>03</span>
+                <div class="value-icon">◎</div>
+                <h3>Өнүгүү</h3>
+                <p>Жаңы көндүмдөрдү үйрөнүү жана өзүн өнүктүрүү.</p>
+            </div>
+
+            <div class="value-card">
+                <span>04</span>
+                <div class="value-icon">↗</div>
+                <h3>Биримдик</h3>
+                <p>Окуучулар, ата-энелер жана мугалимдердин кызматташуусу.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- EDUCATION --><!-- EDUCATION -->
+
+<section class="section education-section">
+    <div class="container education-container">
+
+```
+    <div class="education-heading">
+        <span class="section-label">БИЛИМ БЕРҮҮ</span>
+        <h2>Окуу жана өнүгүү</h2>
+        <p>Мектеп жашоосунун маанилүү багыттары.</p>
+    </div>
+
+    <div class="education-list">
+
+        <a href="{% url 'education_detail' slug='oku-protsessi' %}" class="education-item">
+            <span>01</span>
+            <div>
+                <h3>Окуу процесси</h3>
+                <p>Окуучулардын билим алуусу жана сабактан тышкаркы иштери.</p>
+            </div>
+            <b>→</b>
+        </a>
+
+        <a href="{% url 'education_detail' slug='chygarmachylyk' %}" class="education-item">
+            <span>02</span>
+            <div>
+                <h3>Чыгармачылык</h3>
+                <p>Окуучулардын талантын жана жөндөмдөрүн өнүктүрүү.</p>
+            </div>
+            <b>→</b>
+        </a>
+
+        <a href="{% url 'education_detail' slug='sport' %}" class="education-item">
+            <span>03</span>
+            <div>
+                <h3>Спорт жана активдүүлүк</h3>
+                <p>Ден соолукту чыңдоо жана командалык иш.</p>
+            </div>
+            <b>→</b>
+        </a>
+
+    </div>
+</div>
+
+
+</section>
+
+
+
+<!-- FINAL BANNER -->
+<section class="section about-final">
+    <div class="container">
+        <span>Ж. КАСЫМБАЕВА АТЫНДАГЫ №105 МЕКТЕП</span>
+        <h2>Билимдүү муун — жаркын келечек!</h2>
+        <a href="{% url 'home' %}" class="hero-main-btn">
+            Башкы бетке кайтуу →
+        </a>
+    </div>
+</section>
+
+{% endblock %}

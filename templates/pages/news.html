@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Жаңылыктар | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <span>№105 ЖАЛПЫ БИЛИМ БЕРҮҮ МЕКТЕБИ</span>
+        <h1>Мектеп жаңылыктары</h1>
+        <p>Мектептеги акыркы окуялар жана маанилүү маалыматтар.</p>
+    </div>
+</section>
+
+<section class="page-content">
+    <div class="container">
+
+        <div class="page-grid">
+
+            {% for item in items %}
+
+            <a href="{% url 'news_detail' pk=item.pk %}"
+               class="info-card news-card-link">
+
+                {% if item.image %}
+                    <img
+                        src="{{ item.image.url }}"
+                        alt="{{ item.title }}"
+                        style="width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:20px;"
+                    >
+                {% endif %}
+
+                <h2>{{ item.title }}</h2>
+
+                <p>{{ item.description|truncatewords:25 }}</p>
+
+                <small>{{ item.created_at|date:"d.m.Y" }}</small>
+
+                <div class="news-read-more">
+                    Толук окуу →
+                </div>
+
+            </a>
+
+            {% empty %}
+
+            <div class="empty-card">
+                <h3>Азырынча жаңылыктар жок</h3>
+                <p>Жаңылыктар жакында жарыяланат.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

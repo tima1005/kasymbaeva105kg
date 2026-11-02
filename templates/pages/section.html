@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <span>№105 ЖАЛПЫ БИЛИМ БЕРҮҮ МЕКТЕБИ</span>
+        <h1>{{ title }}</h1>
+        <p>{{ subtitle }}</p>
+        <a href="{% url 'home' %}" class="page-back">Башкы бетке кайтуу →</a>
+    </div>
+</section>
+
+<section class="page-content">
+    <div class="container">
+        <div class="page-grid">
+
+            {% for card in cards %}
+            <div class="info-card">
+                <div class="card-number">0{{ forloop.counter }}</div>
+                <h2>{{ card.title }}</h2>
+                <p>{{ card.text }}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

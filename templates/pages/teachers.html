@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}Мугалимдер | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<section class="teachers-hero">
+    <div class="container">
+        <span>№105 ЖАЛПЫ БИЛИМ БЕРҮҮ МЕКТЕБИ</span>
+        <h1>Биздин мугалимдер</h1>
+        <p>
+            Билимдин жана тарбиянын жолун көрсөткөн,
+            келечек муунду өстүргөн кесипкөй педагогдор.
+        </p>
+    </div>
+</section>
+
+<section class="teachers-intro">
+    <div class="container">
+        <div class="teachers-intro-content">
+            <span class="section-label">БИЗДИН ЖАМААТ</span>
+            <h2>Ар бир ийгиликтин артында мыкты мугалим турат</h2>
+            <p>
+                Мектептин негизги байлыгы — анын мугалимдер жамааты.
+                Биз окуучулардын билим алуусуна, чыгармачылык
+                жөндөмдөрүнүн өнүгүшүнө жана инсан катары
+                калыптанышына өзгөчө көңүл бурабыз.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="teachers-section">
+    <div class="container">
+        <div class="teachers-heading">
+            <span class="section-label">ПЕДАГОГИКАЛЫК ЖАМААТ</span>
+            <h2>Биздин педагогдор</h2>
+            <p>Мугалимдер жөнүндө маалымат жакында жарыяланат.</p>
+        </div>
+
+        <div class="teachers-grid">
+
+            {% for teacher in teachers %}
+
+            <a href="{% url 'teacher_detail' pk=teacher.pk %}"
+               class="teacher-card teacher-card-link">
+
+                <div class="teacher-photo">
+                    {% if teacher.image %}
+                        <img src="{{ teacher.image.url }}" alt="{{ teacher.full_name }}">
+                    {% else %}
+                        <div class="teacher-placeholder">105</div>
+                    {% endif %}
+                </div>
+
+                <div class="teacher-info">
+                    <h3>{{ teacher.full_name }}</h3>
+                    <p>{{ teacher.subject }}</p>
+
+                    {% if teacher.description %}
+                        <span>{{ teacher.description|truncatewords:15 }}</span>
+                    {% endif %}
+
+                    <div class="teacher-read-more">
+                        Профилди көрүү →
+                    </div>
+                </div>
+
+            </a>
+
+            {% empty %}
+
+            <div class="teachers-empty">
+                <div class="empty-icon">✦</div>
+                <h3>Маалымат даярдалууда</h3>
+                <p>Мугалимдер жөнүндө маалымат жакында кошулат.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<section class="teachers-final">
+    <div class="container">
+        <h2>Билим — келечектин пайдубалы</h2>
+        <p>Ар бир окуучунун ийгилиги биздин жалпы максатыбыз.</p>
+    </div>
+</section>
+
+{% endblock %}

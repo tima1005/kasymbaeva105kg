@@ -1,0 +1,91 @@
+/* №105 SCHOOL ADMIN DESIGN */
+
+:root {
+    --primary: #102747;
+    --secondary: #1b4772;
+    --gold: #d4a84e;
+    --light: #f4f7fb;
+}
+
+body {
+    background: var(--light);
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    background: var(--primary);
+    color: white;
+    padding: 18px 30px;
+}
+
+#site-name a {
+    color: white !important;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+#user-tools {
+    color: #dce6f2;
+}
+
+#user-tools a {
+    color: var(--gold);
+}
+
+div.breadcrumbs {
+    background: var(--secondary);
+    padding: 14px 30px;
+}
+
+.module {
+    border-radius: 12px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 5px 20px rgba(16,39,71,.06);
+}
+
+.module h2,
+.module caption {
+    background: var(--primary);
+    color: white;
+    padding: 13px 16px;
+}
+
+a:link,
+a:visited {
+    color: var(--secondary);
+}
+
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input {
+    background: var(--primary);
+    color: white;
+    border-radius: 7px;
+    padding: 9px 18px;
+}
+
+.button:hover,
+input[type=submit]:hover {
+    background: var(--secondary);
+}
+
+#content {
+    padding: 30px;
+}
+
+.dashboard .module {
+    margin-bottom: 25px;
+}
+
+.object-tools a {
+    background: var(--gold);
+    border-radius: 7px;
+    color: #102747 !important;
+    font-weight: bold;
+}
+
+.object-tools a:hover {
+    background: #e5bd6d;
+}

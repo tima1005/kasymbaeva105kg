@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Ж. Касымбаева атындагы №105 жалпы билим берүү мектебинин расмий сайты">
+
+    <title>{% block title %}№105 мектеп{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+
+    <!-- УШУЛ ЖЕРГЕ КОШ -->
+    <div class="site-preloader" id="sitePreloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">105</div>
+            <div class="preloader-line">
+                <span></span>
+            </div>
+            <p>БИЛИМ МЕНЕН КЕЛЕЧЕККЕ ЖОЛ АЧ!</p>
+        </div>
+    </div>
+
+    <!-- Калган сайттын коду -->
+
+<header class="modern-header">
+    <div class="header-inner">
+
+        <!-- LOGO -->
+       {% load static %}
+
+<a href="{% url 'home' %}" class="school-logo">
+    <div class="logo-icon">
+        <img src="{% static 'images/582967659_17943025968065004_4471824318166982939_n.jpg' %}" alt="Мектептин логотиби">
+    </div>
+</a>
+            <div class="logo-info">
+                <strong>№105 МЕКТЕП</strong>
+                <span>Ж. Касымбаева атындагы</span>
+            </div>
+
+        </a>
+
+
+        <!-- MOBILE MENU BUTTON -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Менюну ачуу">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <!-- NAVIGATION -->
+        <nav class="modern-nav" id="mainNav">
+
+            <a href="{% url 'home' %}" class="nav-link">Башкы бет</a>
+
+            <a href="{% url 'about' %}" class="nav-link">Мектеп жөнүндө</a>
+
+            <a href="{% url 'teachers' %}" class="nav-link">Мугалимдер</a>
+
+            <a href="{% url 'news' %}" class="nav-link">Жаңылыктар</a>
+
+            <a href="{% url 'events' %}" class="nav-link">Иш-чаралар</a>
+
+            <a href="{% url 'achievements' %}" class="nav-link">Жетишкендиктер</a>
+
+            <a href="{% url 'gallery' %}" class="nav-link">Галерея</a>
+
+            <a href="{% url 'contacts' %}" class="nav-contact">
+                Байланыш →
+            </a>
+
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+
+<footer>
+    <div class="container">
+        <h3>Ж. Касымбаева атындагы №105 мектеп</h3>
+        <p>Билимдүү муун — жаркын келечек!</p>
+        <p>© 2026. Бардык укуктар корголгон.</p>
+    </div>
+</footer>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

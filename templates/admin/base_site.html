@@ -1,0 +1,27 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}
+№105 мектеп | Башкаруу панели
+{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+    <a href="{% url 'admin:index' %}">
+        №105 МЕКТЕП
+    </a>
+</div>
+{% endblock %}
+
+{% block welcome-msg %}
+Кош келиңиз, <strong>{% firstof user.get_short_name user.get_username %}</strong>!
+{% endblock %}
+
+{% block nav-global %}
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'admin/css/admin.css' %}">
+{% endblock %}

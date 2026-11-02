@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.title }} | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<section class="news-detail-hero">
+    <div class="container">
+        <a href="{% url 'news' %}" class="news-back">
+            ← Бардык жаңылыктар
+        </a>
+
+        <span class="section-label">№105 МЕКТЕП / ЖАҢЫЛЫКТАР</span>
+
+        <h1>{{ item.title }}</h1>
+
+        <p class="news-date">
+            {{ item.created_at|date:"d.m.Y" }}
+        </p>
+    </div>
+</section>
+
+<section class="news-detail-content">
+    <div class="container">
+
+        {% if item.image %}
+        <div class="news-detail-image">
+            <img src="{{ item.image.url }}" alt="{{ item.title }}">
+        </div>
+        {% endif %}
+
+        <article class="news-detail-text">
+            {{ item.description|linebreaks }}
+        </article>
+
+        <a href="{% url 'news' %}" class="news-back-button">
+            ← Жаңылыктарга кайтуу
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

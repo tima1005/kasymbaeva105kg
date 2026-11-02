@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Маалымат даярдалууда | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<section class="education-detail-hero">
+    <div class="container">
+
+
+    <a href="{% url 'about' %}" class="education-back">
+        ← Мектеп жөнүндө
+    </a>
+
+    <span class="section-label">№105 МЕКТЕП</span>
+
+    <h1>Бул бөлүм жакында толукталат.</h1>
+
+    <p>
+        Учурда бул багыт боюнча маалыматтар даярдалып жатат.
+        Жакында бул жерден мектептин ишмердүүлүгү тууралуу
+        кененирээк маалымат ала аласыз.
+    </p>
+
+    <a href="{% url 'about' %}" class="hero-main-btn">
+        ← Мектеп жөнүндө
+    </a>
+
+</div>
+
+
+</section>
+
+{% endblock %}

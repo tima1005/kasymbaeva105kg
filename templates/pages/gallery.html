@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Галерея | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <span>№105 ЖАЛПЫ БИЛИМ БЕРҮҮ МЕКТЕБИ</span>
+        <h1>Мектеп галереясы</h1>
+        <p>
+            Мектеп жашоосундагы кызыктуу учурлар,
+            иш-чаралар жана эсте каларлык көз ирмемдер.
+        </p>
+    </div>
+</section>
+
+<section class="school-gallery">
+    <div class="container">
+
+        <div class="gallery-heading">
+            <span class="section-label">ЭСТЕ КАЛАРЛЫК КӨЗ ИРМЕМДЕР</span>
+            <h2>Биздин мектептин жашоосу</h2>
+            <p>Мектептеги өзгөчө учурлар бир жерде.</p>
+        </div>
+
+        <div class="gallery-grid">
+
+            {% for item in items %}
+            <div class="gallery-item">
+
+                <div class="gallery-image">
+                    <img
+                        src="{{ item.image.url }}"
+                        alt="{{ item.title }}"
+                        class="gallery-open"
+                    >
+
+                    <div class="gallery-overlay">
+                        <h3>{{ item.title }}</h3>
+
+                        {% if item.description %}
+                            <p>{{ item.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+
+            {% empty %}
+            <div class="gallery-empty">
+                <div>✦</div>
+                <h3>Сүрөттөр даярдалууда</h3>
+                <p>Галереяга сүрөттөр жакында кошулат.</p>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<div class="gallery-lightbox" id="galleryLightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <img id="lightboxImage" src="" alt="Мектеп сүрөтү">
+</div>
+
+{% endblock %}

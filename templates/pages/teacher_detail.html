@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.full_name }} | №105 мектеп{% endblock %}
+
+{% block content %}
+
+<section class="teacher-detail-hero">
+    <div class="container">
+
+        <a href="{% url 'teachers' %}" class="teacher-back">
+            ← Бардык мугалимдер
+        </a>
+
+        <span class="section-label">№105 МЕКТЕП / МУГАЛИМДЕР</span>
+
+        <h1>{{ item.full_name }}</h1>
+
+        <p class="teacher-subject">
+            {{ item.subject }}
+        </p>
+
+    </div>
+</section>
+
+<section class="teacher-detail-content">
+    <div class="container">
+
+        <div class="teacher-profile">
+
+            {% if item.image %}
+            <div class="teacher-detail-image">
+                <img src="{{ item.image.url }}" alt="{{ item.full_name }}">
+            </div>
+            {% endif %}
+
+            <div class="teacher-detail-info">
+                <span class="section-label">МУГАЛИМ ЖӨНҮНДӨ</span>
+
+                <h2>{{ item.full_name }}</h2>
+
+                <h3>{{ item.subject }}</h3>
+
+                {% if item.description %}
+                    <div class="teacher-description">
+                        {{ item.description|linebreaks }}
+                    </div>
+                {% else %}
+                    <p>Бул мугалим тууралуу маалымат жакында толукталат.</p>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <a href="{% url 'teachers' %}" class="teacher-back-button">
+            ← Мугалимдерге кайтуу
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}
